@@ -17,17 +17,17 @@ RUN python -m venv /py && \
     if [ $DEV = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
-    rm -rf /tmp && \
-    adduser \ 
-        --disabled-password \
-        --gecos "" \
-        --home /app \
-        django-user
+    rm -rf /tmp
+    # adduser \ 
+    #     --disabled-password \
+    #     --gecos "" \
+    #     --home /app \
+    #     django-user
 
 
 
-    ENV PATH="/py/bin:$PATH"
-    RUN chown django-user:django-user -R /app
-RUN chmod +x /app
-    # USER django-user
+ENV PATH="/py/bin:$PATH"
+#     RUN chown django-user:django-user -R /app
+# # RUN chmod +x /app
+#     USER django-user
 
