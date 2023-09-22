@@ -1,7 +1,7 @@
 """
 Database models.
 """
-from django.db import models 
+from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
+
     def create_superuser(self, email, password):
         """Create and return a superuser"""
         user = self.create_user(email, password)
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
